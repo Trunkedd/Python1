@@ -1,10 +1,10 @@
 Kokkejakke = 0
 hp = 100
 def start():
-    hus = input("\nDu har blit invitert til en fest blir du hjemme eller drar du og fester ")
-    if hus == "hjemme":
+    hus = input("\nDu har blit invitert til en fest blir du hjemme eller drar du og fester 1/2->")
+    if hus == "1":
         hjemme1()
-    if hus =="fester":
+    if hus =="2":
         fester1()
 
 def ja2():
@@ -15,7 +15,7 @@ def ja2():
     if Hellstrømmatgangster == "nei":
         mat2()   
 def mat1():
-    print("Hellstrøm lagde deg noe chili con carne men plutselig starter du og sovne") 
+    print("Hellstrøm lagde deg noe chili con carne etter du hadde spist alt starter du og sovne") 
     besvim()
 def mat2():
     print("\nHellstrøm ble sur og slo deg til og alt går svart")
@@ -62,7 +62,7 @@ def dør2():
         dør5()
 def dør3():
     print("\ndu fant et rom fylt med godteri og så du går tilbake")
-    dører3 = input("Hvilken dør går du i 1,2 ")
+    dører3 = input("Hvilken dør går du i 1/2 ")
     if dører3 == "1":
         dør1()
     if dører3 == "2":
@@ -83,10 +83,10 @@ def fram():
         Valg = input("hva gjør du,gå og lage deg noe mat,spør om hjelp,fortsett videre,velg med 1/2/3 ")
         if Valg == "1":
             print("Du går og skal lage deg litt kake men plutselig kjenner du noen røre deg på skuldra")
-            skuldrer = input("Hva gjør du 1 angrip han som er bortideg 2 løp dritt raskt 3 snu deg som en vanlig person ")
+            skuldrer = input("Hva gjør du 1 angrip den som er bortideg 2 løp dritt raskt 3 snu deg som en vanlig person ")
             if skuldrer == "1":
-                pass
-
+                print("du slår dem i fjeset og løper imot utgangen")
+                rom3
         if Valg == "2":
             print("Du leter etter noen men finner ingen")
             Ingen = input("Fortsett eller lett videre")
@@ -95,6 +95,14 @@ def fram():
             skuldrer = input("Hva gjør du 1 angrip han som er bortideg 2 løp dritt raskt 3 snu deg som en vanlig person ")
             if skuldrer == "1":
                 pass
+def rom3():
+    gjemsell=input("Du er i et rom med et bord et skap og en dør 1/2/3 ->")
+    if gjemsell =="1":
+        pass
+    if gjemsell =="2":
+        pass
+    if gjemsell =="3":
+        pass
 def dør5():
     print("\ninne her finner du en med pose på hodet")
     poseman = input("\nTar du Posen av eller fortsetter du 1/2->")
@@ -107,29 +115,29 @@ def nei1():
     besvim()
 def går1():
     print("\nDu går til hellstrøm og dere snakker i noen minuter og han hadde det bra så han spurte om nummere ditt ")
-    nummeret = input("Får han hellstrøm nummeret ditt eller nope ")
-    if nummeret == "nope":
+    nummeret = input("Får han hellstrøm nummeret ditt eller ikke 1/2-> ")
+    if nummeret == "2":
         nei1()
-    if nummeret == "ja":
+    if nummeret == "1":
         ja1()
 
 
 def ikke1():
     print("\nDu tenker at du burde respekter Hellstrøms fest og la han være i fred")
-    men = input("Han ser deg stire og går mot deg du blir stresset hva gjør du går du mot han eller går du vekk ")
-    if men == "vekk":
+    men = input("Han ser deg stire og går mot deg du blir stresset hva gjør du går du mot han eller går du vekk 1/2 ->  ")
+    if men == "2":
         besvim()
-    if men == "går":
+    if men == "1":
         går1()
 
 def hjemme1():
     print("Du blei hjemme rykter hadde det at selveste Eyvind Hellstrøm var der")
 def fester1():
     print("Du gjorde deg klar til festen og dro til festen") 
-    kjendis = input("\ner det selveste Hellstrøm går du og snakker med Hellstrøm eller ikke ")
-    if kjendis == "ikke":
+    kjendis = input("\ner det selveste Hellstrøm går du og snakker med Hellstrøm eller ikke 1/2 -> ")
+    if kjendis == "2":
         ikke1()
-    if kjendis == "går":
+    if kjendis == "1":
         går1()
 
 
