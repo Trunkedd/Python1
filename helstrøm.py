@@ -1,3 +1,4 @@
+import random
 Kokkejakke = 0
 hp = 100
 def start():
@@ -86,28 +87,99 @@ def fram():
             skuldrer = input("Hva gjør du 1 angrip den som er bortideg 2 løp dritt raskt 3 snu deg som en vanlig person ")
             if skuldrer == "1":
                 print("du slår dem i fjeset og løper imot utgangen")
-                rom3
+                rom8()
+            if skuldrer == "2":
+                print("Du løper raskt som bare faen")
+                rom8()
         if Valg == "2":
             print("Du leter etter noen men finner ingen")
-            Ingen = input("Fortsett eller lett videre")
+            Ingen = input("Fortsett eller lett videre 1/2 ->")
+            if Ingen == "1":
+                print("Du fortsetter videre ")
+                rom8()
+            if Ingen == "2":
+                print ("du fortsetter og gå til du kjenner noen ta deg i skulderen")
+                skuldrer = input("Hva gjør du 1 angrip den som er bortideg 2 løp dritt raskt 3 snu deg som en vanlig person ")
+            if skuldrer == "1":
+                print("du slår dem i fjeset og løper imot utgangen")
+                rom8()
+            if skuldrer == "2":
+                print("Du løper raskt som bare faen")
+                rom8()
+            if skuldrer == "3":
+                print("du snur deg og ser en han sier at Hellstrøm venter på deg")
+                print("han følger deg til et rom der det står Hellstrøm sin private kamprom")
+                Kamp()
+
         if Valg == "3":
             print("du fortsetter og gå videre till du kjenner en ta deg i skuldra")
             skuldrer = input("Hva gjør du 1 angrip han som er bortideg 2 løp dritt raskt 3 snu deg som en vanlig person ")
             if skuldrer == "1":
-                pass
-def rom3():
+                print("du slår dem i fjeset og løper imot utgangen")
+                rom8()
+def rom8():
     gjemsell=input("Du er i et rom med et bord et skap og en dør 1/2/3 ->")
     if gjemsell =="1":
-        pass
+        print("du løper under bordet og holder pusten")
+        input()
+    tilfeldig = random.randint(1,10)
+ 
+    if tilfeldig <= 3: # mindre enn 3
+        print("du ble funnet\n")
+        start()
+    elif tilfeldig > 3: # mer enn 3
+        print("han gikk forby deg\n")
+        Boss=input("Du ser et rom der det står 'Hellstrøm Sin private Kamprom'Går du in ja/nei->")
+        if Boss == "\nja":
+            pass
+
+        if Boss == "\nnei":
+            pass 
+        
     if gjemsell =="2":
-        pass
+        print("du løper under bordet og holder pusten")
+        input()
+    tilfeldig = random.randint(1,10)
+ 
+    if tilfeldig <= 3: # mindre enn 3
+        print("du ble funnet\n")
+        start()
+    elif tilfeldig > 3: # mer enn 3
+        print("han gikk forby deg\n")
+        Boss=input("Du ser et rom der det står 'Hellstrøm Sin private Kamprom'Går du in ja/nei->")
+        if Boss == "\nja":
+            Kamp()
+
+        if Boss == "\nnei":
+            print("Du finner ingen utgang ser ut som du må gå til Hellstrøm sin private kamprom")
+        
     if gjemsell =="3":
-        pass
+        print("du løper under bordet og holder pusten")
+        input()
+    tilfeldig = random.randint(1,10)
+ 
+    if tilfeldig <= 3: # mindre enn 3
+        print("du ble funnet\n")
+        start()
+    elif tilfeldig > 3: # mer enn 3
+        print("han gikk forby deg\n")
+        Boss=input("Du ser et rom der det står 'Hellstrøm Sin private Kamprom'Går du in ja/nei->")
+        if Boss == "\nja":
+            pass
+
+        if Boss == "\nnei":
+            pass 
+def Kamps():
+    print("du går inn i kamprommet")
 def dør5():
     print("\ninne her finner du en med pose på hodet")
     poseman = input("\nTar du Posen av eller fortsetter du 1/2->")
-    if poseman == "\nDu tar av han posen og du ser at han er død":
+    if poseman == "1":
+        print("\nDu tar av han posen og du ser at han er død")
         print("du fortsetter")
+        dør4()
+    if poseman == "2":
+        print("du forlater han og fortsetter")
         dør4()
 def nei1():
     print("\ndu sier nei til han han sier at det går greit at du ikke gidde han nummeret han inviterer deg til og drikke noe du takker ja")
@@ -132,6 +204,7 @@ def ikke1():
 
 def hjemme1():
     print("Du blei hjemme rykter hadde det at selveste Eyvind Hellstrøm var der")
+    start()
 def fester1():
     print("Du gjorde deg klar til festen og dro til festen") 
     kjendis = input("\ner det selveste Hellstrøm går du og snakker med Hellstrøm eller ikke 1/2 -> ")
