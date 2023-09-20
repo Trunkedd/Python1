@@ -117,60 +117,100 @@ def fram():
             if skuldrer == "1":
                 print("du slår dem i fjeset og løper imot utgangen")
                 rom8()
+    if Kokkejakke >= 0:
+        print("du ser et stort kjøkken som du løper igjennom en man ser deg og løper etter")
+        rom8()
 def rom8():
     gjemsell=input("Du er i et rom med et bord et skap og en dør 1/2/3 ->")
     if gjemsell =="1":
         print("du løper under bordet og holder pusten")
         input()
-    tilfeldig = random.randint(1,10)
- 
-    if tilfeldig <= 3: # mindre enn 3
-        print("du ble funnet\n")
-        start()
-    elif tilfeldig > 3: # mer enn 3
-        print("han gikk forby deg\n")
-        Boss=input("Du ser et rom der det står 'Hellstrøm Sin private Kamprom'Går du in ja/nei->")
-        if Boss == "\nja":
-            pass
+        tilfeldig = random.randint(1,10)
 
-        if Boss == "\nnei":
-            pass 
+        if tilfeldig <= 3: # mindre enn 3
+            print("du ble funnet\n")
+            start()
+        elif tilfeldig > 3: # mer enn 3
+            print("han gikk forby deg\n")
+            Boss=input("Du ser et rom der det står 'Hellstrøm Sin private Kamprom'Går du in ja/nei->")
+            if Boss == "ja":
+                Kamp()
+
+            if Boss == "nei":
+                print("Du finner ingen utgang ser ut som du må gå til Hellstrøm sin private kamprom")
         
     if gjemsell =="2":
         print("du løper under bordet og holder pusten")
         input()
-    tilfeldig = random.randint(1,10)
- 
-    if tilfeldig <= 3: # mindre enn 3
-        print("du ble funnet\n")
-        start()
-    elif tilfeldig > 3: # mer enn 3
-        print("han gikk forby deg\n")
-        Boss=input("Du ser et rom der det står 'Hellstrøm Sin private Kamprom'Går du in ja/nei->")
-        if Boss == "\nja":
-            Kamp()
+        tilfeldig = random.randint(1,10)
+    
+        if tilfeldig <= 3: # mindre enn 3
+            print("du ble funnet\n")
+            start()
+        elif tilfeldig > 3: # mer enn 3
+            print("han gikk forby deg\n")
+            Boss=input("Du ser et rom der det står 'Hellstrøm Sin private Kamprom'Går du in ja/nei->")
+            if Boss == "ja":
+                Kamp()
 
-        if Boss == "\nnei":
-            print("Du finner ingen utgang ser ut som du må gå til Hellstrøm sin private kamprom")
-        
+            if Boss == "nei":
+                print("Du finner ingen utgang ser ut som du må gå til Hellstrøm sin private kamprom")
+    
     if gjemsell =="3":
         print("du løper under bordet og holder pusten")
         input()
-    tilfeldig = random.randint(1,10)
- 
-    if tilfeldig <= 3: # mindre enn 3
-        print("du ble funnet\n")
-        start()
-    elif tilfeldig > 3: # mer enn 3
-        print("han gikk forby deg\n")
-        Boss=input("Du ser et rom der det står 'Hellstrøm Sin private Kamprom'Går du in ja/nei->")
-        if Boss == "\nja":
-            pass
+        tilfeldig = random.randint(1,10)
+    
+        if tilfeldig >= 3: # mindre enn 3
+            print("du ble funnet\n")
+            start()
+        elif tilfeldig < 3: # mer enn 3
+            print("han gikk forby deg\n")
+            Boss=input("Du ser et rom der det står 'Hellstrøm Sin private Kamprom'Går du in ja/nei->")
+            if Boss == "ja":
+                Kamp()
 
-        if Boss == "\nnei":
-            pass 
-def Kamps():
-    print("du går inn i kamprommet")
+            if Boss == "nei":
+                print("Du finner ingen utgang ser ut som du må gå til Hellstrøm sin private kamprom")
+                Kamp()
+def Kamp():
+    global hp
+    print("Du Ser HELLSTRØM! ")
+    boss_hp = 150
+    fighting = True
+    while fighting:
+        print(f"\nDu har {hp} liv.")
+        print(f"Bossen har {boss_hp} hp.")
+        dodge_chance = 0 # tilbakestill dodge chance hver runde
+        valg = input("\nA: Angrip B: Dodge -> ")
+        if valg == "A":
+            dmg = random.randint(1,10)
+            boss_hp -= dmg
+            print(f"Du slo Hellstrøm for {dmg} dmg.")
+ 
+        elif valg == "B":
+            dodge_chance = random.randint(1,10)
+ 
+        
+        
+        if boss_hp < 0:
+            print("Du klarte det Hellstrøm døde du vant")
+            victory()
+ 
+        else: # boss attack
+            if dodge_chance < 2:
+                boss_dmg = random.randint(5,10)
+                hp -= boss_dmg
+                print(f"Hellstrøm slo deg for {boss_dmg} dmg.")
+        if hp < 1:
+            print("Du er død")
+            game_over()
+      
+def game_over():
+    print("du tapte mot hellstrøm ")
+ 
+def victory():
+    print("du klarte det!")
 def dør5():
     print("\ninne her finner du en med pose på hodet")
     poseman = input("\nTar du Posen av eller fortsetter du 1/2->")
