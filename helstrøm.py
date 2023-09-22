@@ -115,11 +115,12 @@ def dør4():
             asking=False
         else:
             print("Du må enten skrive ja eller nei husk liten bokstav")
-        if valg == "ja":
-            Kokkejakke += 1
-            fram()
-        elif valg == "nei":
-            fram()
+
+    if valg == "ja":
+        Kokkejakke += 1
+        fram()
+    elif valg == "nei":
+        fram()
 def fram():
     global Kokkejakke
     print("\nDu går framover og ser et gigantisk kjøkken")
@@ -301,27 +302,40 @@ def Kamp():
       
 def game_over():
     print("du tapte mot hellstrøm ")
-    start()
+    creds()
+    
  
 def victory():
     print("du klarte det!")
     creds()
 def creds():
-    print("Du vant gratis men nå hva")
+    print("Du vant bra jobbet men nå hva")
     print("enkelt prøv igjen")
-    igjen = input("vil du prøve igjen ja/nei")
-    if igjen == "ja":
-        start()
-    if igjen == "nei":
-        print("lykke til")
+    asking = True
+    while asking == True:
+        igjen = input("vil du prøve igjen ja/nei")
+        if igjen == "ja" or "nei":
+            asking = False
+        else:
+            print("Du skreiv feil husk liten bokstav ja / nei")
+        if igjen == "ja":
+            start()
+        elif igjen == "nei":
+            print("lykke til")
 def dør5():
     print("\ninne her finner du en med pose på hodet")
-    poseman = input("\nTar du Posen av eller fortsetter du 1/2->")
+    asking = True
+    while asking == True:
+        poseman = input("\nTar du Posen av eller fortsetter du 1/2->")
+        if poseman =="1" or "2":
+            asking= False
+        else:
+            print("Du skreiv feil skriv enten 1 eller 2")
     if poseman == "1":
         print("\nDu tar av han posen og du ser at han er død")
         print("du fortsetter")
         dør4()
-    if poseman == "2":
+    elif poseman == "2":
         print("du forlater han og fortsetter")
         dør4()
 def nei1():
@@ -330,19 +344,31 @@ def nei1():
     besvim()
 def går1():
     print("\nDu går til hellstrøm og dere snakker i noen minuter og han hadde det bra så han spurte om nummere ditt ")
-    nummeret = input("Får han hellstrøm nummeret ditt eller ikke 1/2-> ")
+    asking = True
+    while asking == True:
+        nummeret = input("Får han hellstrøm nummeret ditt eller ikke ja/nei-> ")
+        if nummeret =="ja" or nummeret=="nei":
+            asking = False
+        else:
+            print("Du skreiv feil husk små bokstaver")
     if nummeret == "2":
         nei1()
-    if nummeret == "1":
+    elif nummeret == "1":
         ja1()
 
 
 def ikke1():
     print("\nDu tenker at du burde respekter Hellstrøms fest og la han være i fred")
-    men = input("Han ser deg stire og går mot deg du blir stresset hva gjør du går du mot han eller går du vekk 1/2 ->  ")
+    asking= True
+    while asking==True:
+        men = input("Han ser deg stire og går mot deg du blir stresset hva gjør du går du mot han eller går du vekk 1/2 ->  ")
+        if men =="1" or men =="2":
+            asking = False
+        else:
+            print("Du skreiv noe annet en 1 eller 2")
     if men == "2":
         besvim()
-    if men == "1":
+    elif men == "1":
         går1()
 
 def hjemme1():
@@ -350,12 +376,18 @@ def hjemme1():
     start()
 def fester1():
     print("Du gjorde deg klar til festen og dro til festen") 
-    kjendis = input("\ner det selveste Hellstrøm går du og snakker med Hellstrøm eller ikke 1/2 -> ")
+    asking = True
+    while asking == True:
+        kjendis = input("\ner det selveste Hellstrøm går du og snakker med Hellstrøm eller ikke 1/2 -> ")
+        if kjendis =="1" or kjendis =="2":
+            asking= False
+        else:
+            print("Du skreiv feil skriv 1 eller 2")
     if kjendis == "2":
         ikke1()
-    if kjendis == "1":
+    elif kjendis == "1":
         går1()
 
 
-
+#hei 
 start()
